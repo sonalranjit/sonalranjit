@@ -18,20 +18,20 @@ This was my first major project with python, most of this post will be taken fro
 <meta property="og:description" content="Github Repo
 This was my first major project with python, most of this post will be taken from the assignment submission. The project was part of my GPS course in Undergrad, the project involved creating a python program to get an epoch by epoch least squares position solution of a GPS receiver using it&rsquo;s observation and navigation RINEX files. This project was done with in part with Patrick Lasagne." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://www.sonalranjit.com/projects/rinex/" />
+<meta property="og:url" content="http://sonalranjit.github.io/sonalranjit/projects/rinex/" />
 <meta property="article:published_time" content="2014-12-06T13:54:40-04:00"/>
 <meta property="article:modified_time" content="2014-12-06T13:54:40-04:00"/>
 
 
     
-      <base href="http://www.sonalranjit.com/projects/rinex/">
+      <base href="http://sonalranjit.github.io/sonalranjit/projects/rinex/">
     
     <title>
   RINEX Reader · Sonal Ranjit
 </title>
 
     
-      <link rel="canonical" href="http://www.sonalranjit.com/projects/rinex/">
+      <link rel="canonical" href="http://sonalranjit.github.io/sonalranjit/projects/rinex/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -41,7 +41,7 @@ This was my first major project with python, most of this post will be taken fro
     
       
       
-      <link rel="stylesheet" href="http://www.sonalranjit.com/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://sonalranjit.github.io/sonalranjit/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -49,13 +49,13 @@ This was my first major project with python, most of this post will be taken fro
     
 
     
-      <link rel="stylesheet" href="http://www.sonalranjit.com/css/custom.css" />
+      <link rel="stylesheet" href="http://sonalranjit.github.io/sonalranjit/css/custom.css" />
     
 
     
     
-    <link rel="icon" type="image/png" href="http://www.sonalranjit.com/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://www.sonalranjit.com/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://sonalranjit.github.io/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://sonalranjit.github.io/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.55.6" />
   </head>
@@ -64,7 +64,7 @@ This was my first major project with python, most of this post will be taken fro
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="http://www.sonalranjit.com">
+    <a class="navigation-title" href="http://sonalranjit.github.io/sonalranjit">
       Sonal Ranjit
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -73,15 +73,15 @@ This was my first major project with python, most of this post will be taken fro
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.sonalranjit.com/posts/">Blog</a>
+            <a class="navigation-link" href="http://sonalranjit.github.io/sonalranjit/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.sonalranjit.com/projects/">Projects</a>
+            <a class="navigation-link" href="http://sonalranjit.github.io/sonalranjit/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://www.sonalranjit.com/about/">About</a>
+            <a class="navigation-link" href="http://sonalranjit.github.io/sonalranjit/about/">About</a>
           </li>
         
       
@@ -360,13 +360,13 @@ $$</p>
 
 <p>Which consists of an initial estimate <em>f(x0)</em> of the unknown parameter x, with a correction scaled by the difference between the difference of the &ldquo;true&rdquo; value x and the initial estimate. The initial estimates were chosen to be the listed X, Y, and Z position of the station in the header, with a time offset of 0. In least squares adjustment, the difference between the &ldquo;true&rdquo; value and the estimated one is given by delta. The correction to teh estimates is what is solved for in each iteration. Iterations usually continue until delta is significantly small, but in the case of this particular adjustment, delta is only iterated a few times. The linearized model also contains a part about the partial derivative of the function with respect to a variable x, in least squares adjustment, x is a vector, and a matrix must be composed of the partial derivatives of the functions with respect to each unknown in a vector. This matrix is called the first design matrix (A), and can be seen below.</p>
 
-<p><img src="http://www.sonalranjit.com/images/rinex_A_matrix.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/rinex_A_matrix.png" alt="" /></p>
 
 <p>Where PR_sat1 is the pseudorange function of the first satellite, PR_sat2 is the pseudorange function of the second satellite, and so on. X_rec, Y_rec, Z_rec and t_rec are the unknowns mentioned earlier.</p>
 
 <p>The partial derivatives of the pseudorange equation with respect to the each unknown can be seen below:</p>
 
-<p><img src="http://www.sonalranjit.com/images/pde_pseudo.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/pde_pseudo.png" alt="" /></p>
 
 <p>One other matrix must be created before delta can be solved for, the misclosure vector w which is the measure of how well the unknown estimations fit with the model and the pseudorange observations, w is given by:</p>
 
@@ -390,7 +390,7 @@ C_x = (A^TA)^{-1}
 $$</p>
 
 <p>It is a 4x4 matrix which contains the covariances of each unknown to the themselves and all other unknowns, shown below:
-<img src="http://www.sonalranjit.com/images/covariance_matrix.png" alt="" /></p>
+<img src="http://sonalranjit.github.io/sonalranjit/images/covariance_matrix.png" alt="" /></p>
 
 <p>It can be seen that the variances of the unknowns are present in the diagonal components, and that all off diagonal components are the covariance&rsquo;s between unknowns. The diagonal variances will be used to compute the DOPs of the epoch, which will be explained in the next section.</p>
 
@@ -431,19 +431,19 @@ Z =  4745791.300 +- 0.0009</code></pre></div>
 
 <p>As described before the satellite positions for every epoch of the recorded observations have to be calculated. The RINEX observations are recorded for every 30 seconds, therefore there are quite a number of satellite positions to be determined about 2600 epochs of measurements. A good way of ensuring the satellite positions are being calculated correctly is to visualize the satellite positions. The expectation of these plots is to follow a similar path of the sun rise and fall motion.</p>
 
-<p><img src="http://www.sonalranjit.com/images/figure_1.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/figure_1.png" alt="" /></p>
 
 <h3 id="positions">Positions</h3>
 
 <p>The final solution of the receiver coordinates can be plotted to visualize the quality of the solution. The pyplot library was used for all graphical plotting and image generation. Below is a scatter 2D plot of the receiver X and Y coordinates.</p>
 
-<p><img src="http://www.sonalranjit.com/images/figure_6.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/figure_6.png" alt="" /></p>
 
 <p>Looking at the above figure there seems to be an irregularity with the position solutions. The expectation of the final solutions would be a general agreement of the position therefore the scatter plot should show a cluster of positions centered around a region. Looking at Figure 2 that is not the case, there are several position several hundreds of meters away from the centered cluster of points around the published coordinates. The expected accuracy of the Standard Position Solution are meter level the final solutions outputted do not seems to satisfy the quality. Further investigation has to be made to understand this anomaly, there could be various factors resulting this deviation. It should be kept in mind that the tropospheric delay was not corrected for these solutions because of divergence in the final solution with the tropospheric delay turned on position solutions were different in the range of kilometers. One interesting characteristic from the plot that can be noticed is there are streaks in the positions. This hints towards a correlation between time, therefore there has to be a blunder in the programming where it is obtaining an incorrect satellite position or an incorrect time. Due to time constraints the debugging of the code was not completed.</p>
 
 <p>Another piece of evidence that can be used to visualize the discrepancy in the solutions is the coordinate difference from the published coordinates of the solution.</p>
 
-<p><img src="http://www.sonalranjit.com/images/figure_5.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/figure_5.png" alt="" /></p>
 
 <p>As one can notice from the above figure the initial solutions seem to have a stable deviation of about meter level for X and Z, 10s of meters for the Y component for about the first 1000 epochs then the coordinates deviate to 100 of meters past the 1100th epoch. This anomaly hints to the general time to which is causing the discrepancy in the position solutions.</p>
 
@@ -517,11 +517,11 @@ Z =  4745791.300 +- 0.0009</code></pre></div>
 
 <p>The DOP of the final solution can be visualized to see if there is any correlation between the epoch when the discrepancy began. The figure below illustrates the GDOP values for each epoch of the solution.</p>
 
-<p><img src="http://www.sonalranjit.com/images/figure_2.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/figure_2.png" alt="" /></p>
 
 <p>Looking at the above figure there is quite a noticeable discrepancy in the GDOP of the solution for a period of time around the 500th epoch. This spike in the GDOP value although does not correlate with teh discrepancy illustrated in the figure with the coordiante difference. For the rest of the solution the GDOP seems to have a reasonably low and workable value. The average GDOP for the timeline of the observation file was 2.76. Which is quite goood but looking at the GDOP plots it still doesn&rsquo;t provide insight on the deviation of the final coordinates.</p>
 
-<p><img src="http://www.sonalranjit.com/images/figure_7.png" alt="" /></p>
+<p><img src="http://sonalranjit.github.io/sonalranjit/images/figure_7.png" alt="" /></p>
 
 <p>Figure above illustrates the standard deviation of each of teh elements in the solution. It can be clearly seen the huge spike in the GDOP plot are mostly contributed by the Y and Z component of the solution. This narrows down the component to which is causing the deviation of the position of the receiver with the published one. As mentioned before due to time constraints the problem could not be pinpointed and solved.</p>
 

@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Sonal Ranjit</title>
-    <link>http://www.sonalranjit.com/tags/</link>
+    <link>http://sonalranjit.github.io/sonalranjit/tags/</link>
     <description>Recent content in Tags on Sonal Ranjit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 06 Dec 2014 13:54:40 -0400</lastBuildDate>
     
-	<atom:link href="http://www.sonalranjit.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://sonalranjit.github.io/sonalranjit/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>GPS</title>
-      <link>http://www.sonalranjit.com/tags/gps/</link>
+      <link>http://sonalranjit.github.io/sonalranjit/tags/gps/</link>
       <pubDate>Sat, 06 Dec 2014 13:54:40 -0400</pubDate>
       
-      <guid>http://www.sonalranjit.com/tags/gps/</guid>
+      <guid>http://sonalranjit.github.io/sonalranjit/tags/gps/</guid>
       <description></description>
     </item>
     
     <item>
       <title>development</title>
-      <link>http://www.sonalranjit.com/tags/development/</link>
+      <link>http://sonalranjit.github.io/sonalranjit/tags/development/</link>
       <pubDate>Sat, 06 Dec 2014 13:54:40 -0400</pubDate>
       
-      <guid>http://www.sonalranjit.com/tags/development/</guid>
+      <guid>http://sonalranjit.github.io/sonalranjit/tags/development/</guid>
       <description></description>
     </item>
     
     <item>
       <title>python</title>
-      <link>http://www.sonalranjit.com/tags/python/</link>
+      <link>http://sonalranjit.github.io/sonalranjit/tags/python/</link>
       <pubDate>Sat, 06 Dec 2014 13:54:40 -0400</pubDate>
       
-      <guid>http://www.sonalranjit.com/tags/python/</guid>
+      <guid>http://sonalranjit.github.io/sonalranjit/tags/python/</guid>
       <description></description>
     </item>
     

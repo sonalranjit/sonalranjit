@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Sonal Ranjit</title>
-    <link>http://www.sonalranjit.com/</link>
+    <link>http://sonalranjit.github.io/sonalranjit/</link>
     <description>Recent content on Sonal Ranjit</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 06 Dec 2014 13:54:40 -0400</lastBuildDate>
     
-	<atom:link href="http://www.sonalranjit.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://sonalranjit.github.io/sonalranjit/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>RINEX Reader</title>
-      <link>http://www.sonalranjit.com/projects/rinex/</link>
+      <link>http://sonalranjit.github.io/sonalranjit/projects/rinex/</link>
       <pubDate>Sat, 06 Dec 2014 13:54:40 -0400</pubDate>
       
-      <guid>http://www.sonalranjit.com/projects/rinex/</guid>
+      <guid>http://sonalranjit.github.io/sonalranjit/projects/rinex/</guid>
       <description>Github Repo
 This was my first major project with python, most of this post will be taken from the assignment submission. The project was part of my GPS course in Undergrad, the project involved creating a python program to get an epoch by epoch least squares position solution of a GPS receiver using it&amp;rsquo;s observation and navigation RINEX files. This project was done with in part with Patrick Lasagne.</description>
     </item>
     
     <item>
       <title>About Me</title>
-      <link>http://www.sonalranjit.com/about/</link>
+      <link>http://sonalranjit.github.io/sonalranjit/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://www.sonalranjit.com/about/</guid>
+      <guid>http://sonalranjit.github.io/sonalranjit/about/</guid>
       <description>Hello, my name is Sonal Ranjit. Currently on a life adventure as a Software Developer. Lately I have been focused on building Unity based applications. I am a very curious person so always looking for a new adventure to go on.</description>
     </item>
     
