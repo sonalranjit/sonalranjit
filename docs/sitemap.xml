@@ -3,66 +3,66 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/categories/</loc>
+    <loc>https://sonalranjit.com/categories/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/categories/development/</loc>
+    <loc>https://sonalranjit.com/categories/development/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/tags/gps/</loc>
+    <loc>https://sonalranjit.com/tags/gps/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/projects/</loc>
+    <loc>https://sonalranjit.com/projects/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/projects/rinex/</loc>
+    <loc>https://sonalranjit.com/projects/rinex/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/</loc>
-    <lastmod>2014-12-06T13:54:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/tags/</loc>
+    <loc>https://sonalranjit.com/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/tags/development/</loc>
+    <loc>https://sonalranjit.com/tags/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/categories/python/</loc>
+    <loc>https://sonalranjit.com/tags/development/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/tags/python/</loc>
+    <loc>https://sonalranjit.com/categories/python/</loc>
     <lastmod>2014-12-06T13:54:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://sonalranjit.github.io/sonalranjit/about/</loc>
+    <loc>https://sonalranjit.com/tags/python/</loc>
+    <lastmod>2014-12-06T13:54:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://sonalranjit.com/about/</loc>
   </url>
   
 </urlset>
