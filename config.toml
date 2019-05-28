@@ -1,4 +1,4 @@
-baseurl = "http://sonalranjit.github.io/sonalranjit"
+baseurl = "https://sonalranjit.github.io/sonalranjit/"
 title = "Sonal Ranjit"
 theme = "hugo-coder"
 languagecode = "en"
