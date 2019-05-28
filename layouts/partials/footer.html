@@ -12,6 +12,8 @@
         {{ if or (not .Site.Params.hideCredits) (not .Site.Params.hideCopyright) }} · {{ end }}
         [<a href="{{ .Site.Params.commit }}{{ getenv "GIT_COMMIT_SHA" }}">{{ getenv "GIT_COMMIT_SHA_SHORT" }}</a>]
       {{ end }}
+      {{ if or .Site.Params.math .Params.math}}
+      {{ partial "math.html" . }}
+      {{ end }}
     </section>
-    {{ partial "katex.html" . }}
   </footer>

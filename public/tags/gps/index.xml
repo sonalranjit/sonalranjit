@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GPS on Sonal Ranjit</title>
+    <link>http://www.sonalranjit.com/tags/gps/</link>
+    <description>Recent content in GPS on Sonal Ranjit</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 06 Dec 2014 13:54:40 -0400</lastBuildDate>
+    
+	<atom:link href="http://www.sonalranjit.com/tags/gps/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>RINEX Reader</title>
+      <link>http://www.sonalranjit.com/projects/rinex/</link>
+      <pubDate>Sat, 06 Dec 2014 13:54:40 -0400</pubDate>
+      
+      <guid>http://www.sonalranjit.com/projects/rinex/</guid>
+      <description>Github Repo
+This was my first major project with python, most of this post will be taken from the assignment submission. The project was part of my GPS course in Undergrad, the project involved creating a python program to get an epoch by epoch least squares position solution of a GPS receiver using it&amp;rsquo;s observation and navigation RINEX files. This project was done with in part with Patrick Lasagne.</description>
+    </item>
+    
+  </channel>
+</rss>
