@@ -24,8 +24,8 @@ This was my first major project with python, most of this post will be taken fro
 ---
 * Develop python functions to process RINEX observations and navigation files and store the data in data structures.
 * Develop python function to determine satellite position using the navigation files.
-* Develop python functitons to compute and apply ionospheric and tropospheric corrections, as well as satellite offsets, and apply them to observation pseudoranges where applicable.
-* Run an epoch by epoch least squares adjustmentt to determine the location and clock offset of the receiver.
+* Develop python functions to compute and apply ionospheric and tropospheric corrections, as well as satellite offsets, and apply them to observation pseudoranges where applicable.
+* Run an epoch by epoch least squares adjustment to determine the location and clock offset of the receiver.
 * Compute various DOP values using the covariance matrix from the least squares adjustment.
 * Determine the accuracy and precision of the solution.
 * Explain why the values were acquired.
@@ -34,7 +34,7 @@ This was my first major project with python, most of this post will be taken fro
 ---
 RINEX stands for Receiver Independent Exchange Format, it is stored in an ascii format and contains GNSS Observations. The two RINEX files that the software reads are the observation and navigation files.
 
-It was decided that the information stored in the observation and navigation files would be stored in a python dictionary data structure. A dictionary holds a set of unique "key-value" pairs that allow information to be accessed rapidly, without having to deal with messy array indices. The implementation is not important, all that must be kept in mind is that dictionaries allow the information present in the two RINEX files to be stored and later rapidly accessedd with meaningdful keywords at a later date. The only downside of dictionaries is that there is no reliable way to iterate through a dictionary in a certain order, to counteract this, each dictionary that may need to be iterated over also includes a list of keys corresponding to the key 'LIST' in the order they were placed into the dictionary.
+It was decided that the information stored in the observation and navigation files would be stored in a python dictionary data structure. A dictionary holds a set of unique "key-value" pairs that allow information to be accessed rapidly, without having to deal with messy array indices. The implementation is not important, all that must be kept in mind is that dictionaries allow the information present in the two RINEX files to be stored and later rapidly accessed with meaningful keywords at a later date. The only downside of dictionaries is that there is no reliable way to iterate through a dictionary in a certain order, to counteract this, each dictionary that may need to be iterated over also includes a list of keys corresponding to the key 'LIST' in the order they were placed into the dictionary.
 
 The parsing of the RINEX navigation file is done line by line and character by character. Each element in the RINEX file is given a certain amount of spacing to fill up. This information on the spacing is found in the GAGE GROUP's gLab RINEX file format [description](https://gage.upc.es/sites/default/files/gLAB/HTML/GPS_Navigation_Rinex_v4_CNAV.html)
 
@@ -45,7 +45,7 @@ The observation RINEX file contains all of the GPS receiver's observations that 
 #### Header Section
 The header section contains information relating to the receiver, such as it's position in a given coordinate system, it's antenna height, or it's make and model. It also contains clerical information pertaining to the observation set, and may include extra information present in comments. Most importantly, the header details the type of observations present in the RINEX file.
 
-The header contains information for the first 60 characters (there are 80 on a line), the remaining 20 consitute a label which explains what is detailed in the previous 60 characters, each line is then terminated witth a new line break (\n). To fully parse the header, the RINEX file is read in line by line. At each line, the label is checked to see what kind of header information is present on that line, this continues until END OF HEADER was reached, at that point, the software would switch from trying to read the header, to trying to read the observations. While the software attempts to read the header, it consults the last word of the label, and attempts to match it with a predefined list present in the software (with HTYPER method). In the event that two or more label types have the same last word, then the second last word is used instead. Once the label is identified, the software parses the line according to it (with ASSIGNDIC). The values present are extracted from the line with direct indexing (ex, character 0-16), are assigned meaningful "keys", and are placed in the dictionary. In th event that a key already exists (or a multi-line label is reached), the value at the key is changed depending on label type. For example, if a COMMENT label is reached, the current string value stored at the key 'COMMENT' has the new value appended to it's end. In the event # / TYPES OF OBSERV occurs on more than two lines (with more than nine observation types), the list that holds the observation types has the extra values appended to it. While all information in the header section was stored in the obsHead dictionary, only a few important keys present in the header are used in the software, they are:
+The header contains information for the first 60 characters (there are 80 on a line), the remaining 20 constitute a label which explains what is detailed in the previous 60 characters, each line is then terminated with a new line break (\n). To fully parse the header, the RINEX file is read in line by line. At each line, the label is checked to see what kind of header information is present on that line, this continues until END OF HEADER was reached, at that point, the software would switch from trying to read the header, to trying to read the observations. While the software attempts to read the header, it consults the last word of the label, and attempts to match it with a predefined list present in the software (with HTYPER method). In the event that two or more label types have the same last word, then the second last word is used instead. Once the label is identified, the software parses the line according to it (with ASSIGNDIC). The values present are extracted from the line with direct indexing (ex, character 0-16), are assigned meaningful "keys", and are placed in the dictionary. In th event that a key already exists (or a multi-line label is reached), the value at the key is changed depending on label type. For example, if a COMMENT label is reached, the current string value stored at the key 'COMMENT' has the new value appended to it's end. In the event # / TYPES OF OBSERV occurs on more than two lines (with more than nine observation types), the list that holds the observation types has the extra values appended to it. While all information in the header section was stored in the obsHead dictionary, only a few important keys present in the header are used in the software, they are:
 
 |*Key*     |*Value*                                       |*Description*                                              |
 |----------|----------------------------------------------|-----------------------------------------------------------|
@@ -57,7 +57,7 @@ The data section contains the epoch by epoch observations by the receiver to the
 
 |**Key**|**Value**|**Description**|
 |-------|---------|---------------|
-|'YY:MM:DD:HH:MM:S.sssssss|Dictionary with sub keys 'PRN','PRN','PRN', and 'LIST', 'NUMSAT'|The key refers to the observation block epoch. It mapps to a dictionary which contains dictionaries referred to by satellite PRN numbers, each dictionary corresponds to a different satellite in the observation block. 'LIST' maps to a list of all satellite PRN numbers (for iterating) 'NUMSAT' refers to the integer number of satellites.|
+|'YY:MM:DD:HH:MM:S.sssssss|Dictionary with sub keys 'PRN','PRN','PRN', and 'LIST', 'NUMSAT'|The key refers to the observation block epoch. It maps to a dictionary which contains dictionaries referred to by satellite PRN numbers, each dictionary corresponds to a different satellite in the observation block. 'LIST' maps to a list of all satellite PRN numbers (for iterating) 'NUMSAT' refers to the integer number of satellites.|
 |'PRN'|Dictionary with sub keys 'C1', 'P1', 'P2', etc|Contains the observations for the given satellite at the given epoch.|
 
 **Dictionary Structure**
@@ -94,12 +94,12 @@ The data section contains the epoch by epoch observations by the receiver to the
 ### Navigation File Reader
 
 #### Header Section
-The header file contains metadata information about the RINEX file such as the RINEX version. The line identifier in header has reserved space of 20 characters at the end of the line. Each RINEX file has 80 characters per line therefore the location of the header labels are always known. For each header label the location of the variables is defined by the index of the character spacing. For each label a dictionary key is defined as the variable value corresponding to the label is stored. Beisdes the RINEX version the header contains comments about the RINEX file, and 3 optional information such as the emphemeris coefficients of the Ionosphere *alpha* and *beta*. Also optionally included in the header is the clock offset coefficients of UTC from GPS and the number of leap seconds the current GPS time is from UTC. The end of the header is defined by the label 'END OF HEADER' once this is reached then parsing of the navigation data begins.
+The header file contains metadata information about the RINEX file such as the RINEX version. The line identifier in header has reserved space of 20 characters at the end of the line. Each RINEX file has 80 characters per line therefore the location of the header labels are always known. For each header label the location of the variables is defined by the index of the character spacing. For each label a dictionary key is defined as the variable value corresponding to the label is stored. Besides the RINEX version the header contains comments about the RINEX file, and 3 optional information such as the emphemeris coefficients of the Ionosphere *alpha* and *beta*. Also optionally included in the header is the clock offset coefficients of UTC from GPS and the number of leap seconds the current GPS time is from UTC. The end of the header is defined by the label 'END OF HEADER' once this is reached then parsing of the navigation data begins.
 
 #### Data Section
 The navigation data is sorted in the RINEX file by the GPS PRN number then epoch the ephemeris data is valid for. Again the spacing for each element of the broadcast is defined for every line. The label for the PRN key is defined for the first 2 space of the line after the header. Once the PRN number is parsed then the lines are counted from that point on. Each element of the line has certain index and spacing, then the data is parsed until the 8th line is reached and a new PRN number is parsed. Each broadcast contains 29 variables that the satellite broadcasts. These 29 variables are given in a block of 8 lines and 4 columns, one of the spaces is for the PRN number and the epoch while the other 2 spaces of the 32 spaces are left empty in the RINEX 2.11 version.
 
-The data is collectively stored with a nestedd dictionary, where the top most key is the GPS PRN number, then the data blocks are divided by subkeys of the epoch that the broadcast data is valid for.
+The data is collectively stored with a nested dictionary, where the top most key is the GPS PRN number, then the data blocks are divided by subkeys of the epoch that the broadcast data is valid for.
 
 |**Key**|**Value**|**Description**|
 |-------|---------|---------------|
@@ -153,7 +153,7 @@ Once all of the Orbital parameters are determined and the position of the satell
 ### Corrections
 
 #### Ionospheric Correction
-The effect due to the ionosphere can be mitigated in two ways. If using a single frequency receiver, the delay caused by the ionosphere can be modelled with the Klobuchar model. Since the software does not attempt to adjust a single frequency receiver observations, the Klobuchar model will not be explained here. When using a ddual frequency receiver, the delay due to the ionosphere can be nearly mitigated with a linear combination of the two equations, one on each frequency. The equation for the Ionofree linear combination that removes most of the ionospheric effect is:
+The effect due to the ionosphere can be mitigated in two ways. If using a single frequency receiver, the delay caused by the ionosphere can be modelled with the Klobuchar model. Since the software does not attempt to adjust a single frequency receiver observations, the Klobuchar model will not be explained here. When using a dual frequency receiver, the delay due to the ionosphere can be nearly mitigated with a linear combination of the two equations, one on each frequency. The equation for the Ionofree linear combination that removes most of the ionospheric effect is:
 
 $$
 \[PR=\frac{PR_2-\gamma PR_1}{1-\gamma}\]
@@ -185,9 +185,9 @@ $$
 \[PR=\sqrt{(X_s - X_r)^2 + (Y_s - Y_r)^2 + (Z_s - Z_r)^2} + c(t_r - t_s)\]
 $$
 
-*PR* is the pseudorange between the satellite and the receiver, it canbe likened to the geometric range, plus a correction in the time domain. The square root term is the geometric range from satellite to receiver, where terms with a subscript "s" are satellite cooridantes, and the terms with a subscript "r" are the receiver coordinates. The coordinates are asssumed to be in the same coordinate system. The three receiver coordinates are part of what the least square adjustment attempted to estimate. *c* is the speed of light in meters per second and was provided in the ICD. The variable *t_r* is the time offset on the receiver, and is another paramter that must be solved for, finally *t_s* is the satellite vehicle offset, and provides a small error that must be compensated for.
+*PR* is the pseudorange between the satellite and the receiver, it can be likened to the geometric range, plus a correction in the time domain. The square root term is the geometric range from satellite to receiver, where terms with a subscript "s" are satellite coordinates, and the terms with a subscript "r" are the receiver coordinates. The coordinates are assumed to be in the same coordinate system. The three receiver coordinates are part of what the least square adjustment attempted to estimate. *c* is the speed of light in meters per second and was provided in the ICD. The variable *t_r* is the time offset on the receiver, and is another parameter that must be solved for, finally *t_s* is the satellite vehicle offset, and provides a small error that must be compensated for.
 
-Once the model has been chosen, it must be paramterized, that is observables, unknowns, and constants must be chosen.
+Once the model has been chosen, it must be parameterized, that is observables, unknowns, and constants must be chosen.
 
 The observables were chosen to be the pseudoranges *(PR)*, they form a vector of observables *l* seen below
 
@@ -201,7 +201,7 @@ $$
 x = [X_r, Y_r, Z_r, t_r]
 $$
 
-The constants were chosen to be satellite positions, and the satellite clock offset. Once the observables and unknowns were chosen, a suitable least squares model had to be chosen. Since all observables are present on one side of the equation, and the other side of the equation is a function of only unknowns and constants, parameteric adjustment was chosen with the model.
+The constants were chosen to be satellite positions, and the satellite clock offset. Once the observables and unknowns were chosen, a suitable least squares model had to be chosen. Since all observables are present on one side of the equation, and the other side of the equation is a function of only unknowns and constants, parametric adjustment was chosen with the model.
 
 $$
 l = f(x, c)
@@ -254,7 +254,7 @@ The adjustment process is completed for each epoch. Initial estimations from the
 ### Analysis Terms
 
 #### Standard Deviation
-The standard deviation is a statistical measure of accuracy of a given variable. It defines a confidence interval of where the true value of the variable can lie within. One standard deviation defines 68% confidence interval where the true value of the variable lies within. For the position solution each of the coordinates are defined with the value and it's standard deviation. The standard deviation is a product from the Least Squares proccess of the position solution. It is the square root of the diagonal elements of the Covariance matrix of the unknowns, which in this case are the X, Y, and Z and the clock offset.
+The standard deviation is a statistical measure of accuracy of a given variable. It defines a confidence interval of where the true value of the variable can lie within. One standard deviation defines 68% confidence interval where the true value of the variable lies within. For the position solution each of the coordinates are defined with the value and it's standard deviation. The standard deviation is a product from the Least Squares process of the position solution. It is the square root of the diagonal elements of the Covariance matrix of the unknowns, which in this case are the X, Y, and Z and the clock offset.
 
 #### Dilution of Precision
 The Dilution of Precision is a measure of precision of the solution. It is defined simply as the trace of the covariance matrix of the solution. The two types of DOPs used in this report are Geometric DOP (GDOP) and Position DOP (PDOP). The DOPs are defined as:
@@ -272,7 +272,7 @@ $$
 This section describes the analysis of the solution for the data used for a test site.
 
 ### Test Site ALBH
-The RINEX datasets were provided by the Teaching Assistant, the station used for the positioning solution was designated ALBH. The station is location near Victoria, British Columbia. ALBH is a continuously tracking GNSS site, it is part of the Western Canada Deformation Array (WCDA) it is also part of the Canadian Active Control System(CACS). The published coordinates of the site is given in the Natural Resources Canada's CACS website.
+The RINEX dataset were provided by the Teaching Assistant, the station used for the positioning solution was designated ALBH. The station is location near Victoria, British Columbia. ALBH is a continuously tracking GNSS site, it is part of the Western Canada Deformation Array (WCDA) it is also part of the Canadian Active Control System(CACS). The published coordinates of the site is given in the Natural Resources Canada's CACS website.
 The ECEF coordinates are published as:
 
 ```tex
@@ -322,7 +322,7 @@ The DOP of the final solution can be visualized to see if there is any correlati
 
 ![](/images/figure_2.png)
 
-Looking at the above figure there is quite a noticeable discrepancy in the GDOP of the solution for a period of time around the 500th epoch. This spike in the GDOP value although does not correlate with teh discrepancy illustrated in the figure with the coordiante difference. For the rest of the solution the GDOP seems to have a reasonably low and workable value. The average GDOP for the timeline of the observation file was 2.76. Which is quite goood but looking at the GDOP plots it still doesn't provide insight on the deviation of the final coordinates.
+Looking at the above figure there is quite a noticeable discrepancy in the GDOP of the solution for a period of time around the 500th epoch. This spike in the GDOP value although does not correlate with teh discrepancy illustrated in the figure with the coordinate difference. For the rest of the solution the GDOP seems to have a reasonably low and workable value. The average GDOP for the timeline of the observation file was 2.76. Which is quite good but looking at the GDOP plots it still doesn't provide insight on the deviation of the final coordinates.
 
 ![](/images/figure_7.png)
 
