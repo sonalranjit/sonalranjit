@@ -21,5 +21,14 @@
 This was my first major project with python, most of this post will be taken from the assignment submission. The project was part of my GPS course in Undergrad, the project involved creating a python program to get an epoch by epoch least squares position solution of a GPS receiver using it&amp;rsquo;s observation and navigation RINEX files. This project was done with in part with Patrick Lasagne.</description>
     </item>
     
+    <item>
+      <title>Magic Wand</title>
+      <link>https://sonalranjit.com/projects/magicwand/</link>
+      <pubDate>Fri, 14 Feb 2014 11:22:01 -0400</pubDate>
+      
+      <guid>https://sonalranjit.com/projects/magicwand/</guid>
+      <description>This was one of my first hardware projects I have been part of. During my sophmore year at York University I was fortunate enough to be part of a collaborative makeshop session run by the GaMay Lab and Foad Hamidi. During this session we had the opportunity to build anything we wanted, there were supplies such as arduino boards and 3D printers provided. I had partnered with Chitiiran Krishna Moorthy and Kajendra Seevananthan, we settle on an idea of building a Harry Potter inspired Magic Wand, we were both Harry Potter fans so we were very excited when we starting going down the rabbit hole of making a wand, it sounded doable so we went with it.</description>
+    </item>
+    
   </channel>
 </rss>
